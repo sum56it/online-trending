@@ -1,0 +1,62 @@
+<html>
+<head>
+    <style>
+        body {
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .feedback-container {
+            background: rgba(5, 141, 232, 0.5); 
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .stars {
+            display: flex;
+            justify-content: center;
+        }
+        .star {
+            font-size: 2em;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+        }
+        .star.checked {
+            color: gold;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var stars = document.querySelectorAll('.star');
+            stars.forEach(function(star) {
+                star.addEventListener('click', setRating);
+            });
+
+            function setRating(ev) {
+                stars.forEach(function(star) {
+                    star.classList.remove('checked');
+                });
+                ev.currentTarget.classList.add('checked');
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="feedback-container">
+        <h1>Feedback</h1>
+        <p>We value your feedback. Please rate our website and leave a message below.</p>
+        <div class="stars">
+            <span class="star">☆</span>
+            <span class="star">☆</span>
+            <span class="star">☆</span>
+            <span class="star">☆</span>
+            <span class="star">☆</span>
+        </div>
+        <textarea placeholder="Type your message here..." rows="5" style="width: 100%;"></textarea>
+        <button style="display: block; width: 100%; padding: 10px; margin-top: 20px;">Submit</button>
+    </div>
+</body>
+</html>
